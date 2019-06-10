@@ -1,0 +1,12 @@
+{
+  "name": "samuelramon-personal-site",
+  "version": "1.0.0",
+  "main": "index.html",
+  "repository": "https://github.com/samuelrbo/samuelramon.com.br",
+  "author": "Samuel Ramon <samuelrbo@gmail.com>",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+
+  }
+}
