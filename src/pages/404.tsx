@@ -15,9 +15,15 @@ export default ({
 }) => {
   const [openStyle, setOpenStyle] = useState<string>('');
 
-  setInterval(() => {
-    openStyle === 'open' ? setOpenStyle('') : setOpenStyle('open');
-  }, 3000);
+  useEffect(() => {
+    const openInterval = setInterval(() => {
+      openStyle === 'open' ? setOpenStyle('') : setOpenStyle('open');
+    }, 1800);
+
+    return () => {
+      clearInterval(openInterval);
+    };
+  }, []);
 
   return (
     <Layout>
@@ -27,16 +33,16 @@ export default ({
       <section className={`${utilStyles.centerContent}`}>
         <div className={`book ${openStyle}`}>
           <div className='back'></div>
-          <div className='page6'>
+          <div className='pages page6'>
             <p>Page Not Found</p>
           </div>
-          <div className='page5'>
+          <div className='pages page5'>
             <p>404</p>
           </div>
-          <div className='page4'></div>
-          <div className='page3'></div>
-          <div className='page2'></div>
-          <div className='page1'></div>
+          <div className='pages page4'></div>
+          <div className='pages page3'></div>
+          <div className='pages page2'></div>
+          <div className='pages page1'></div>
           <div className='front'>
             <h1 className=' title'>Error</h1>
           </div>
