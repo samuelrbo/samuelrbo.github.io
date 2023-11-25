@@ -2,10 +2,13 @@
   "name": "samuelramon-personal-site",
   "version": "2.0.0",
   "repository": "https://github.com/samuelrbo/samuelramon.com.br",
+  "homepage": "https://samuelrbo.github.io",
   "author": "Samuel Ramon <samuelrbo@gmail.com>",
   "license": "MIT",
   "private": true,
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "dev": "next dev",
     "build": "next build",
     "start": "next start"
@@ -22,6 +25,7 @@
   "devDependencies": {
     "@types/node": "^16.11.9",
     "@types/react": "^17.0.35",
+    "gh-pages": "^6.1.0",
     "typescript": "^4.5.2"
   }
 }

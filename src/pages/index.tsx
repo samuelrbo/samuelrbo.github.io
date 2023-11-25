@@ -8,17 +8,17 @@ import { GetStaticProps } from 'next';
 
 export default ({
   allPostsData,
-  careerSummary
+  careerSummary,
 }: {
   allPostsData: {
-    date: string,
-    title: string,
-    id: string,
-  } [],
+    date: string;
+    title: string;
+    id: string;
+  }[];
   careerSummary: {
-    title: string,
-    contentHtml: string
-  }
+    title: string;
+    contentHtml: string;
+  };
 }) => (
   <Layout home>
     <Head>
@@ -30,12 +30,12 @@ export default ({
       <div dangerouslySetInnerHTML={{ __html: careerSummary.contentHtml }} />
     </section>
 
-    <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
-      <h2 className={utilStyles.headingLg}>Blog</h2>
+    {Array.isArray(allPostsData) && allPostsData.length > 0 && (
+      <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
+        <h2 className={utilStyles.headingLg}>Blog</h2>
 
-      <ul className={utilStyles.list}>
-        {
-          allPostsData.map(({id, date, title}) => (
+        <ul className={utilStyles.list}>
+          {allPostsData.map(({ id, date, title }) => (
             <li className={utilStyles.listItem} key={id}>
               <Link href={`/posts/${id}`}>
                 <a>{title}</a>
@@ -45,10 +45,10 @@ export default ({
                 <Date dateString={date} />
               </small>
             </li>
-          ))
-        }
-      </ul>
-    </section>
+          ))}
+        </ul>
+      </section>
+    )}
   </Layout>
 );
 
@@ -61,5 +61,5 @@ export const getStaticProps: GetStaticProps = async () => {
       allPostsData,
       careerSummary,
     },
-  }
-}
+  };
+};
