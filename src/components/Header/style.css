@@ -1,0 +1,17 @@
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.profile {
+  border-radius: 9999px;
+}
+
+.mainTitle {
+  font-size: 2.5rem;
+  line-height: 1.2;
+  font-weight: 800;
+  letter-spacing: -0.05rem;
+  margin: 1rem 0;
+}
