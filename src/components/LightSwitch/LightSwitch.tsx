@@ -1,8 +1,11 @@
-import { LayoutContext, LayoutContextProps } from 'components/layout';
+import { LayoutContext, LayoutContextProps } from '@shared/layout/Layout';
+import { LayoutTheme } from '@shared/layout/layout.enum';
 import { ChangeEvent, useContext } from 'react';
+import './style.css';
 
-export default () => {
-  const { setTheme } = useContext<LayoutContextProps>(LayoutContext);
+const LightSwitch = () => {
+  const { theme, switchToTheme } =
+    useContext<LayoutContextProps>(LayoutContext);
 
   return (
     <div className='light-switch-container'>
@@ -10,8 +13,9 @@ export default () => {
         type='checkbox'
         id='light-switch'
         onChange={(e: ChangeEvent<HTMLInputElement>) =>
-          setTheme(e.target.checked ? 'light' : 'dark')
+          switchToTheme(e.target.checked ? LayoutTheme.LIGHT : LayoutTheme.DARK)
         }
+        checked={theme === LayoutTheme.LIGHT}
       />
       <label htmlFor='light-switch' id='light-switch-label'>
         <div className='screw'></div>
@@ -22,3 +26,5 @@ export default () => {
     </div>
   );
 };
+
+export default LightSwitch;
