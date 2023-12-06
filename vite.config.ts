@@ -5,6 +5,14 @@ import { defineConfig } from 'vite';
 // https://vitejs.dev/config/
 export default defineConfig({
   base: '/',
+  build: {
+    rollupOptions: {
+      input: {
+        main: path.resolve(__dirname, 'index.html'),
+        '404': path.resolve(__dirname, '404.html'),
+      },
+    },
+  },
   plugins: [react()],
   define: {
     __isBrowser__: true,
